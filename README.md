@@ -5,6 +5,8 @@
 **Prof. Dr. Marcelo Johann**        
 **Prof. Dr. Marcelo Pimenta**        
 
+> Intro video: https://youtu.be/5WVwjcJdiVY
+
 In this module, we will learn how to manipulate the audio content in the digital domain. 
 This module will be **hands-on**. A bit of theory will be introduced, but most of the theory presented here will be directly pointed to external videos/links. 
 We will only work with offline processing. This means that we will not perform audio processing in real-time. Real-time audio processing will be addressed in the next module.
@@ -94,6 +96,8 @@ Please, have a look at the **/cpp/task01/** subdirectory. There you will find a 
 
 
 # TASK 01: 
+> video task01: 
+
 
 Compiling/building the task01.cpp code.
 
@@ -133,6 +137,7 @@ The for-loop in the block above will be used to copy the input stream to the lef
 ========================
 
 # TASK 02:
+> video task02: 
 
 
 # Writing a sound.
@@ -191,6 +196,9 @@ You can also play with the frequency **f**. Try setting different values to it a
 
 
 # TASK 03
+> video task03: 
+
+
 ## Creating melodies 
  
  
@@ -225,6 +233,8 @@ There is an example that generates a table with frequencies and midi notes in th
 
 
 # TASK 04
+> video task04: 
+
 
 You must create a melody using only a sine wave and 5 distinct semitones:
 C D E F G. You can try any octave.
@@ -312,6 +322,8 @@ Or you could create the ``SquareWave : SoundProcessor`` class to generate square
 
 
 # TASK 05
+> video task05: 
+
 
 Create your own music combining different notes built with sine waves and also copying parts from wave files. You must mix all in your audio buffer and then save into an output wave file. 
 
