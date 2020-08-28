@@ -89,13 +89,13 @@ Where *number* might be a single byte (char), two bytes (integer), etc.
 At this point, you can already write your own sound. Let's try this writing a simple code in C++. In order to help you to read/save your wave sound into a file, we will use the **libsndfile** library. 
 > http://www.mega-nerd.com/libsndfile/
 
-Please, have a look at the **/c++/activ01/** subdirectory. There you will find a makefile and a skeleton of our code for reading wav files.
+Please, have a look at the **/cpp/task01/** subdirectory. There you will find a makefile and a skeleton of our code for reading wav files.
 
 
 
 # TASK 01: 
 
-Compiling/building the activ01.cpp code.
+Compiling/building the task01.cpp code.
 
 The header below will include the read/write wrappers to help us to manipulate wave files. It will just call the libsndfile to do the job. So, don't forget to install the libsndfile. It is included in this repository but you will need to install the correct version for your OS. See the http://www.mega-nerd.com/libsndfile/ website.
 
@@ -135,7 +135,7 @@ The for-loop in the block above will be used to copy the input stream to the lef
 # TASK 02:
 
 Save the input wave file as two separate channels. 
-A possible answer is in the **activ02.cpp** code.
+A possible answer is in the **task02.cpp** code.
 > Obs.: try doing it yourself first! 
 
 
@@ -190,7 +190,7 @@ for (int i=0; i<buffer_length; i++)
 Note that giving the sample rate **Fs**, we can easily define the sound duration by setting the *buffer_length* to be proportional to **Fs**. If *buffer_length* is equal to **Fs**, then the sound duration will be exactly 1 second. If you set  *buffer_length = 10xFs*, then your sound will last 10 seconds.  
 
 
-You can also play with the frequency **f**. Try setting different values to it and then generate multiple wave audio files.
+You can also play with the frequency **f**. Try setting different values to it and then generate multiple wave audio files (or even changing the frequency along with the time).
 
 
 
@@ -253,6 +253,61 @@ If we choose octave 4, and the notes C D G.
 Then we will need the MIDI numbers: 60 + 0, 60 + 2, 60 + 7.
 
 If we choose two octaves below, we must subtract 2x12 = 24. In this case, the midi number would be: 36, 38, 43.
+
+There is one code example in the **cpp/task04** directory.
+This example introduces a common concept for audio processing. Usually, we design objects that perform some "processing" over a memory buffer. Typically, these objects are controlled and called in an audio thread.  We will not get in to this complexity in this module. However, the "philosophy" is very close with what in this demo code.
+
+The example in task04 uses an abstract class called ``SoundProcessor`` :  
+
+```cpp
+  class SoundProcessor
+  {
+      public:
+  
+          virtual void process(float* audio_buffer, int buffer_length)
+          {
+          }
+  };
+
+```
+
+You could extend this class and implement distinct type of sound processing methods. Also, the class could hold custom parameters, etc.
+
+For example, you could write the ``SineWave : SoundProcessor`` class that will generate sine waves. 
+
+```cpp
+class SineOscillator : public SoundProcessor
+  {
+      public: 
+  
+          float freq; // frequency in Hz
+          float amp; // audio amplitude (between 0.0 and 1.0)
+          float Fs; // audio sample rate
+  
+          SineOscillator(int nota_midi, float _amp, float _Fs)
+          {
+              freq = midi2freq(nota_midi);
+              amp = _amp;
+              Fs = _Fs;
+          }
+  
+          ~SineOscillator()
+          {
+          }   
+  
+          void process(float* audio_buffer, int buffer_len) 
+          {
+              for (int n=0; n<buffer_len; n++)
+              {
+                  audio_buffer[n] = amp * sin(2*M_PI*freq*(((float)n)/Fs)); 
+              }
+          }
+  };
+```
+
+
+Or you could create the ``SquareWave : SoundProcessor`` class to generate square waves. You could also create a ``Reverb : SoundProcessor`` which will apply reverb to the sound buffer. 
+
 
 
 # TASK 05
