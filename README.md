@@ -315,5 +315,5 @@ Or you could create the ``SquareWave : SoundProcessor`` class to generate square
 
 Create your own music combining different notes built with sine waves and also copying parts from wave files. You must mix all in your audio buffer and then save into an output wave file. 
 
-
-Tasks #03 #04 and #05, which were defined in this module, must be submitted in the moodle platform. Please, create a zip file with your code and the respective wave output files.
+You must upload all tasks to the github repository. Please, add your c++ code files inside the the directory `` `cpp/students_upload/``
+:
