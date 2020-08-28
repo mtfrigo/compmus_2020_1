@@ -134,12 +134,6 @@ The for-loop in the block above will be used to copy the input stream to the lef
 
 # TASK 02:
 
-Save the input wave file as two separate channels. 
-A possible answer is in the **task02.cpp** code.
-> Obs.: try doing it yourself first! 
-
-
-
 
 # Writing a sound.
 
@@ -184,7 +178,10 @@ for (int i=0; i<buffer_length; i++)
 }
 ```
 
-# TASK 03
+There is a sample in the **task02** directory.
+
+
+
 
 
 Note that giving the sample rate **Fs**, we can easily define the sound duration by setting the *buffer_length* to be proportional to **Fs**. If *buffer_length* is equal to **Fs**, then the sound duration will be exactly 1 second. If you set  *buffer_length = 10xFs*, then your sound will last 10 seconds.  
@@ -193,8 +190,8 @@ Note that giving the sample rate **Fs**, we can easily define the sound duration
 You can also play with the frequency **f**. Try setting different values to it and then generate multiple wave audio files (or even changing the frequency along with the time).
 
 
-
-# Creating melodies 
+# TASK 03
+## Creating melodies 
  
  
  There is a direct connection between the sound frequency and the pitch of the sound. One standard scale is the musical chromatic scale, where an octave is equally divided into 12 semitones (12 equal temperaments). 
@@ -222,6 +219,10 @@ float midi2freq(int m)
     return 440*pow(2,(m-69.0f)/12.0f);
 }
 ```
+
+There is an example that generates a table with frequencies and midi notes in the **task03** directory.
+
+
 
 # TASK 04
 
