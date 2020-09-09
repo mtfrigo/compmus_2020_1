@@ -1,3 +1,11 @@
+# Instrução para "entrega" dos trabalhos
+
+Cada aluno deve fazer um fork do repositório, fazer alterações/implementações e depois um push do conteúdo.  Feito o "push" pro github, o aluno pode me enviar o link do repositório. Alternativamente, o aluno pode solicitar um "pull-request" para trazer as alterações feitas por ele para dentro do meu repositório.
+
+Vocês podem seguir passo-a-passo as instruções desse post:  https://www.digitalocean.com/community/tutorials/como-criar-um-pull-request-no-github-pt
+
+
+
 
 
 # Introduction to Audio Processing
